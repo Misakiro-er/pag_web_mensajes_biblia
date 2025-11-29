@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Fondo azul marino y texto principal blanco */
+    --background: 210 50% 7%; /* azul marino oscuro */
+    --foreground: 0 0% 100%; /* blanco para texto general */
+
+    --card: 210 50% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 210 50% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 210 60% 55%; /* botones y acentos (azul claro) */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 30% 20%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 15%;
+    --muted-foreground: 0 0% 80%;
+
+    --accent: 210 65% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 18%;
+    --input: 210 15% 18%;
+    --ring: 210 60% 55%;
+
+    --radius: 1rem;
+    
+    --gradient-soft: linear-gradient(135deg, hsl(210 50% 10%), hsl(200 60% 15%));
+    --gradient-warm: linear-gradient(180deg, hsl(210 50% 12%), hsl(210 50% 10%));
+    
+    --shadow-soft: 0 4px 20px -4px hsl(210 40% 10% / 0.5);
+    --shadow-medium: 0 8px 30px -6px hsl(210 40% 8% / 0.6);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 1rem;
+
+    --sidebar-background: 210 50% 12%;
+
+    --sidebar-foreground: 210 10% 90%;
+
+    --sidebar-primary: 210 10% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 210 10% 95%;
+
+    --sidebar-accent-foreground: 210 10% 10%;
+
+    --sidebar-border: 210 13% 18%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* color para títulos específicos */
+    --title: 210 60% 48%;
+  }
+
+  .dark {
+    --background: 30 20% 12%;
+    --foreground: 36 30% 90%;
+
+    --card: 30 18% 15%;
+    --card-foreground: 36 30% 90%;
+
+    --popover: 30 18% 15%;
+    --popover-foreground: 36 30% 90%;
+
+    --primary: 200 60% 65%;
+    --primary-foreground: 30 20% 12%;
+
+    --secondary: 30 15% 20%;
+    --secondary-foreground: 36 30% 90%;
+
+    --muted: 30 15% 20%;
+    --muted-foreground: 30 10% 60%;
+
+    --accent: 42 65% 50%;
+    --accent-foreground: 36 30% 90%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 36 30% 90%;
+
+    --border: 30 15% 25%;
+    --input: 30 15% 25%;
+    --ring: 200 60% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  .verse-card {
+    @apply bg-card rounded-2xl p-8 md:p-12 shadow-[var(--shadow-soft)] backdrop-blur-sm;
+    background: linear-gradient(135deg, hsl(var(--card) / 0.95), hsl(var(--background) / 0.9));
+  }
+  
+  .category-pill {
+    @apply px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300;
+    @apply bg-secondary/60 text-secondary-foreground hover:bg-primary hover:text-primary-foreground;
+    @apply hover:shadow-[var(--shadow-soft)] hover:scale-105;
+  }
+}
